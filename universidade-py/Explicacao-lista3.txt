@@ -1,0 +1,22 @@
+O código que foi feito realiza a matrícula de um aluno em uma disciplina usando transações no banco de dados. 
+Com isso, dá pra ver na prática como funcionam as propriedades ACID: 
+atomicidade, consistência, durabilidade e isolamento.
+
+Atomicidade é a ideia de tudo ou nada, nesse coigo aparece quando usamos:
+ commit() ---> Salva tudo e o rollback() ---> desfaz tudo
+
+Se tudo de certo o commit acontece e a matrícula é salva. Mas se der qualque erro, o rollback entra em ação
+e desfaz tudo, até mesmo o INSERT. Ou seja, nada fica salvo pela metade.
+
+A consistência garante que os dados fiquem corretos no branco.
+No caso desse codigo, aparece quando verificamos se aluno existe e se disciplina existe, se algum dos dois
+não existir, o sistema não deixa inserir a matrícula. Isso evita dados invalidos no branco, como matricula
+de aluno que não existe.
+
+A durabilidade significa que depois de salvo, já era os dados vão sumir. No codigo isso acontece com commit().
+Depois do commit, a matricula fica gravada no banco, mesmo que o sistema pare ou dê problema depois, o dado continua lá.
+
+O isolamento é importante quando varias pessoas usam o sistema ao mesmo tempo.
+Mesmo que o codigo não mostre isso diretamente, é esssencial em um sistema real, Ele evita problemas.
+Como duas pessoas fazendo a mesma matricula ao mesmo tempo, leitura de dados que ainda não foram confrimados etc...
+
