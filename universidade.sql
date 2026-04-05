@@ -53,7 +53,9 @@ CREATE TABLE `cursos` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) DEFAULT NULL,
   `carga_horaria` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `vagas` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  CONSTRAINT `chk_vagas` CHECK ((`vagas` >= 0))
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -63,7 +65,7 @@ CREATE TABLE `cursos` (
 
 LOCK TABLES `cursos` WRITE;
 /*!40000 ALTER TABLE `cursos` DISABLE KEYS */;
-INSERT INTO `cursos` VALUES (1,'Pedagogia',200),(2,'Historia',200),(3,'Sitema Para Internet',180),(4,'cc',250);
+INSERT INTO `cursos` VALUES (1,'Pedagogia',200,0),(2,'Historia',200,0),(3,'Sitema Para Internet',180,0),(4,'cc',250,0);
 /*!40000 ALTER TABLE `cursos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -105,11 +107,11 @@ CREATE TABLE `matricula` (
   `data_matricula` date DEFAULT NULL,
   `semestre` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `aluno_id` (`aluno_id`),
+  UNIQUE KEY `unique_matricula` (`aluno_id`,`curso_id`),
   KEY `curso_id` (`curso_id`),
   CONSTRAINT `matricula_ibfk_1` FOREIGN KEY (`aluno_id`) REFERENCES `alunos` (`id`),
   CONSTRAINT `matricula_ibfk_2` FOREIGN KEY (`curso_id`) REFERENCES `cursos` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -160,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-04-03 22:06:48
+-- Dump completed on 2026-04-05  1:04:35
