@@ -116,7 +116,7 @@ resultados = cursor.fetchall()
 
 
 if resultados:
-    print(f"Aluno: {resultado[0]}, Disciplina: {resultado[1]}")
+    print(f"Aluno: {resultado[0]}, Disciplina: {resultado[1]}") # type: ignore
 else:
     print("Nenhum aluno encontrado.")
 
