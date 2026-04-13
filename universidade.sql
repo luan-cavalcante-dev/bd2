@@ -28,6 +28,7 @@ CREATE TABLE `alunos` (
   `nome` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `sexo` varchar(2) DEFAULT NULL,
+  `capums` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -38,8 +39,76 @@ CREATE TABLE `alunos` (
 
 LOCK TABLES `alunos` WRITE;
 /*!40000 ALTER TABLE `alunos` DISABLE KEYS */;
-INSERT INTO `alunos` VALUES (1,'Luan','luan@gmail.com','M'),(2,'Evelen','evelen@gmail.com','F'),(3,'Gustavo','gustavos@gmail.com','M'),(4,'Eduardo','eduardo@gmail.com','M'),(5,'Carlos','carlos@email.com','M'),(6,'Fernanda','fernanda@email.com','F'),(7,'Lucas','lucas@email.com','M'),(8,'Juliana','juliana@email.com','F'),(9,'Pedro','pedro@email.com','M'),(10,'Camila','camila@email.com','F');
+INSERT INTO `alunos` VALUES (1,'Luan','luan@gmail.com','M','Goianesia'),(2,'Evelen','evelen@gmail.com','F','Goianesia'),(3,'Gustavo','gustavos@gmail.com','M','Goianesia'),(4,'Eduardo','eduardo@gmail.com','M','Goianesia'),(5,'Carlos','carlos@email.com','M','Goianesia'),(6,'Fernanda','fernanda@email.com','F','Anapolis'),(7,'Lucas','lucas@email.com','M','Anapolis'),(8,'Juliana','juliana@email.com','F','Anapolis'),(9,'Pedro','pedro@email.com','M','Anapolis'),(10,'Camila','camila@email.com','F','Anapolis');
 /*!40000 ALTER TABLE `alunos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `alunos_anapolis`
+--
+
+DROP TABLE IF EXISTS `alunos_anapolis`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `alunos_anapolis` (
+  `id` int NOT NULL DEFAULT '0',
+  `nome` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `sexo` varchar(2) DEFAULT NULL,
+  `capums` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `alunos_anapolis`
+--
+
+LOCK TABLES `alunos_anapolis` WRITE;
+/*!40000 ALTER TABLE `alunos_anapolis` DISABLE KEYS */;
+INSERT INTO `alunos_anapolis` VALUES (6,'Fernanda','fernanda@email.com','F','Anapolis'),(7,'Lucas','lucas@email.com','M','Anapolis'),(8,'Juliana','juliana@email.com','F','Anapolis'),(9,'Pedro','pedro@email.com','M','Anapolis'),(10,'Camila','camila@email.com','F','Anapolis');
+/*!40000 ALTER TABLE `alunos_anapolis` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `alunos_global`
+--
+
+DROP TABLE IF EXISTS `alunos_global`;
+/*!50001 DROP VIEW IF EXISTS `alunos_global`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `alunos_global` AS SELECT 
+ 1 AS `id`,
+ 1 AS `nome`,
+ 1 AS `email`,
+ 1 AS `sexo`,
+ 1 AS `capums`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `alunos_goianesia`
+--
+
+DROP TABLE IF EXISTS `alunos_goianesia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `alunos_goianesia` (
+  `id` int NOT NULL DEFAULT '0',
+  `nome` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `sexo` varchar(2) DEFAULT NULL,
+  `capums` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `alunos_goianesia`
+--
+
+LOCK TABLES `alunos_goianesia` WRITE;
+/*!40000 ALTER TABLE `alunos_goianesia` DISABLE KEYS */;
+INSERT INTO `alunos_goianesia` VALUES (1,'Luan','luan@gmail.com','M','Goianesia'),(2,'Evelen','evelen@gmail.com','F','Goianesia'),(3,'Gustavo','gustavos@gmail.com','M','Goianesia'),(4,'Eduardo','eduardo@gmail.com','M','Goianesia'),(5,'Carlos','carlos@email.com','M','Goianesia');
+/*!40000 ALTER TABLE `alunos_goianesia` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -94,6 +163,52 @@ INSERT INTO `disciplinas` VALUES (1,'Banco de dados'),(2,'Logica de Programacao'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `disciplinas_anapolis`
+--
+
+DROP TABLE IF EXISTS `disciplinas_anapolis`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `disciplinas_anapolis` (
+  `id` int NOT NULL DEFAULT '0',
+  `nome` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `disciplinas_anapolis`
+--
+
+LOCK TABLES `disciplinas_anapolis` WRITE;
+/*!40000 ALTER TABLE `disciplinas_anapolis` DISABLE KEYS */;
+INSERT INTO `disciplinas_anapolis` VALUES (2,'Logica de Programacao'),(1,'Banco de dados');
+/*!40000 ALTER TABLE `disciplinas_anapolis` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `disciplinas_goianesia`
+--
+
+DROP TABLE IF EXISTS `disciplinas_goianesia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `disciplinas_goianesia` (
+  `id` int NOT NULL DEFAULT '0',
+  `nome` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `disciplinas_goianesia`
+--
+
+LOCK TABLES `disciplinas_goianesia` WRITE;
+/*!40000 ALTER TABLE `disciplinas_goianesia` DISABLE KEYS */;
+INSERT INTO `disciplinas_goianesia` VALUES (2,'Logica de Programacao'),(1,'Banco de dados'),(4,'Historia Antiga');
+/*!40000 ALTER TABLE `disciplinas_goianesia` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `matricula`
 --
 
@@ -111,7 +226,7 @@ CREATE TABLE `matricula` (
   KEY `curso_id` (`curso_id`),
   CONSTRAINT `matricula_ibfk_1` FOREIGN KEY (`aluno_id`) REFERENCES `alunos` (`id`),
   CONSTRAINT `matricula_ibfk_2` FOREIGN KEY (`curso_id`) REFERENCES `cursos` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,6 +267,24 @@ LOCK TABLES `matricula_disciplina` WRITE;
 INSERT INTO `matricula_disciplina` VALUES (1,22,1),(2,23,1),(3,20,2),(4,3,1),(5,3,2),(6,4,4),(7,8,2);
 /*!40000 ALTER TABLE `matricula_disciplina` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Final view structure for view `alunos_global`
+--
+
+/*!50001 DROP VIEW IF EXISTS `alunos_global`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = latin1 */;
+/*!50001 SET character_set_results     = latin1 */;
+/*!50001 SET collation_connection      = latin1_swedish_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `alunos_global` AS select `alunos_goianesia`.`id` AS `id`,`alunos_goianesia`.`nome` AS `nome`,`alunos_goianesia`.`email` AS `email`,`alunos_goianesia`.`sexo` AS `sexo`,`alunos_goianesia`.`capums` AS `capums` from `alunos_goianesia` union all select `alunos_anapolis`.`id` AS `id`,`alunos_anapolis`.`nome` AS `nome`,`alunos_anapolis`.`email` AS `email`,`alunos_anapolis`.`sexo` AS `sexo`,`alunos_anapolis`.`capums` AS `capums` from `alunos_anapolis` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -162,4 +295,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-04-05  1:04:35
+-- Dump completed on 2026-04-13  0:12:17
